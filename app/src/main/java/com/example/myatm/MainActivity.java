@@ -23,17 +23,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Initializes view objects once globally so they don't have to be found for each click
         btnWithdraw = findViewById(R.id.withdraw);
         btnDeposit = findViewById(R.id.deposit);
         acctAmt = findViewById(R.id.accountAmt);
         moneyAmt = findViewById(R.id.moneyInHandAmt);
         spr = findViewById(R.id.spinner);
 
+        // Launches helper methods
         initSpinner();
-        initDeposit();
         initWithdraw();
+        initDeposit();
     }
 
+    // Creates ArrayAdapter and Listens for spinner selections asynchronously
     private void initSpinner(){
         // Creates arrayAdapter from moneyArray and sets it to spinner
         ArrayAdapter<CharSequence> arrayAdapter = ArrayAdapter.createFromResource
@@ -53,20 +56,25 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    // Listens for withdraw button clicks and handles them asynchronously
     private void initWithdraw() {
-        // Listens for withdraw button clicks and handles them asynchronously
         btnWithdraw.setOnClickListener(view -> {
 
+            // Uses Withdraw class validator to ensure acctAmt doesn't go into negative
             if (withdraw.validator(acctAmt.getText().toString(), selectedAmt))
                 return;
+
+            // Updates values of acctAmt and moneyAmt using
             acctAmt.setText(withdraw.reduce(acctAmt.getText().toString(), selectedAmt));
             moneyAmt.setText(deposit.add(moneyAmt.getText().toString(), selectedAmt));
         });
     }
 
+    // Listens for deposit button clicks and handles them asynchronously
     private void initDeposit(){
-        // Listens for deposit button clicks and handles them asynchronously
         btnDeposit.setOnClickListener(view -> {
+
+            // Uses Withdraw class validator to ensure moneyAmt doesn't go into negative
             if (withdraw.validator(moneyAmt.getText().toString(), selectedAmt))
                 return;
             moneyAmt.setText(withdraw.reduce(moneyAmt.getText().toString(), selectedAmt));
