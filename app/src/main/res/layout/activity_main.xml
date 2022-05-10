@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipToPadding="true"
+    tools:context=".MainActivity">
+
+
+    <Button
+        android:id="@+id/withdraw"
+        android:layout_width="149.5dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rightbutton"
+        android:elevation="10dp"
+        android:text="@string/withdraw"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/deposit"
+        app:layout_constraintTop_toTopOf="@+id/deposit" />
+
+    <Button
+        android:id="@+id/deposit"
+        android:layout_width="149.5dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/leftbutton"
+        android:elevation="20dp"
+        android:text="@string/deposit"
+        android:textColor="@color/white"
+        android:translationZ="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/withdraw"
+        app:layout_constraintStart_toStartOf="@+id/moneyInHandAmt" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="59dp"
+        android:background="#00796b"
+        android:elevation="20dp"
+        android:layoutMode="opticalBounds"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView
+        android:id="@+id/moneyInHand"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/namebackground"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:text="@string/moneyInHand"
+        android:textColor="@color/white"
+        android:textColorHighlight="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/accountAmt"
+        app:layout_constraintTop_toBottomOf="@+id/accountAmt" />
+
+    <TextView
+        android:id="@+id/accountAmt"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:background="@drawable/name_bkg_bottom"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/accountAmt"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/account"
+        app:layout_constraintTop_toBottomOf="@+id/account" />
+
+    <TextView
+        android:id="@+id/account"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/namebackground"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center"
+        android:paddingHorizontal="20dp"
+        android:text="@string/account"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/moneyInHandAmt"
+        android:layout_width="300dp"
+        android:layout_height="55dp"
+        android:background="@drawable/name_bkg_bottom"
+        android:elevation="10dp"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="@string/moneyInHandAmt"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/moneyInHand"
+        app:layout_constraintTop_toBottomOf="@+id/moneyInHand" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="144dp"
+        android:layout_height="48dp"
+        android:dropDownWidth="match_parent"
+        android:elevation="10dp"
+        android:entries="@array/moneyArray"
+        android:gravity="center"
+        android:popupElevation="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/deposit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moneyInHandAmt"
+        app:layout_constraintVertical_bias="0.492" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
