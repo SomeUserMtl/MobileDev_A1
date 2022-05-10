@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
 
             if (withdraw.validator(acctAmt.getText().toString(), selectedAmt))
                 return;
-
             acctAmt.setText(withdraw.reduce(acctAmt.getText().toString(), selectedAmt));
             moneyAmt.setText(deposit.add(moneyAmt.getText().toString(), selectedAmt));
         });
@@ -70,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         btnDeposit.setOnClickListener(view -> {
             if (withdraw.validator(moneyAmt.getText().toString(), selectedAmt))
                 return;
-
             moneyAmt.setText(withdraw.reduce(moneyAmt.getText().toString(), selectedAmt));
             acctAmt.setText(deposit.add(acctAmt.getText().toString(), selectedAmt));
         });
