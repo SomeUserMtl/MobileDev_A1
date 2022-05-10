@@ -64,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
             if (withdraw.validator(acctAmt.getText().toString(), selectedAmt))
                 return;
 
-            // Updates values of acctAmt and moneyAmt using
+            // Updates values of acctAmt & moneyAmt using withdraw & deposit class' methods
             acctAmt.setText(withdraw.reduce(acctAmt.getText().toString(), selectedAmt));
             moneyAmt.setText(deposit.add(moneyAmt.getText().toString(), selectedAmt));
         });
@@ -77,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
             // Uses Withdraw class validator to ensure moneyAmt doesn't go into negative
             if (withdraw.validator(moneyAmt.getText().toString(), selectedAmt))
                 return;
+
+            // Updates values of acctAmt & moneyAmt using withdraw & deposit class' methods
             moneyAmt.setText(withdraw.reduce(moneyAmt.getText().toString(), selectedAmt));
             acctAmt.setText(deposit.add(acctAmt.getText().toString(), selectedAmt));
         });
