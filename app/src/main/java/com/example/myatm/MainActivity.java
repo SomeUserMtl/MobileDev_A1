@@ -59,7 +59,6 @@ public class MainActivity extends AppCompatActivity {
     // Listens for withdraw button clicks and handles them asynchronously
     private void initWithdraw() {
         btnWithdraw.setOnClickListener(view -> {
-
             // Uses Withdraw class validator to ensure acctAmt doesn't go into negative
             if (withdraw.validator(acctAmt.getText().toString(), selectedAmt))
                 return;
@@ -72,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
     // Listens for deposit button clicks and handles them asynchronously
     private void initDeposit(){
         btnDeposit.setOnClickListener(view -> {
-
             // Uses Withdraw class validator to ensure moneyAmt doesn't go into negative
             if (withdraw.validator(moneyAmt.getText().toString(), selectedAmt))
                 return;
